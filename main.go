@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/zserge/lorca"
@@ -20,12 +19,12 @@ func main() {
 	ui.Load(addr)
 
 	// Call JS function from Go. Functions may be asynchronous, i.e. return promises
-	n := ui.Eval(`Math.random()`).Float()
-	fmt.Println(n)
+	// n := ui.Eval(`Math.random()`).Float()
+	// fmt.Println(n)
 
 	// Call JS that calls Go and so on and so on...
-	m := ui.Eval(`add(2, 3)`).Int()
-	fmt.Println(m)
+	// m := ui.Eval(`add(2, 3)`).Int()
+	// fmt.Println(m)
 
 	// Wait for the browser window to be closed
 	<-ui.Done()
