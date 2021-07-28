@@ -129,6 +129,30 @@ fs.writeFileSync(
     `
 );
 
+// Delete App.test.js and Write App.test.ts
+const tsTestPath = path.join(projectRoot, "src", "App.test.ts");
+fs.renameSync(path.join(projectRoot, "src", "App.test.js"), tsTestPath);
+fs.writeFileSync(
+  tsTestPath,
+  `
+/**
+ * @jest-environment jsdom
+ */
+
+import "@testing-library/jest-dom/extend-expect";
+
+import { render } from "@testing-library/svelte";
+
+import AppComponent from "./App.svelte";
+
+test("shows proper heading when rendered", () => {
+  const { getByText } = render(AppComponent, { props: { name: "World" } });
+
+  expect(() => getByText("Hello World!")).not.toThrow();
+});
+
+`
+);
 // Delete this script, but not during testing
 if (!argv[2]) {
   // Remove the script
