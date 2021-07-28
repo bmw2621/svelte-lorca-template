@@ -11,19 +11,39 @@
     "go:build": "go build",
     "svelte:build": "rollup -c",
     "svelte:dev": "rollup -c -w",
-    "svelte:start": "sirv public --no-clear"
+    "svelte:start": "sirv public --no-clear",
+    "svelte:test": "jest src",
+    "svelte:test:watch": "npm run svelte:test -- --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/svelte": "^3.0.3",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "svelte-jester": "^1.7.0"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
-  }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svelte$": "svelte-jester"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "svelte"
+    ]
+  },
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ]
 }
