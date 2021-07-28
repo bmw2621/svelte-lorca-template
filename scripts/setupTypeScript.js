@@ -107,22 +107,21 @@ fs.writeFileSync(tsconfigPath, tsconfig);
 
 // Add global.d.ts
 const dtsPath = path.join(projectRoot, "src", "global.d.ts");
-fs.writeFileSync(
-  dtsPath,
-  `
-  const sveltePreprocess = require("svelte-preprocess");
-
-  module.exports = {
-    preprocess: sveltePreprocess({
-      // ...
-    }),
-};
-`
-);
+fs.writeFileSync(dtsPath, `/// <reference types="svelte" />`);
 
 // Add svelte.config.js
 const svelteConfigPath = path.join(projectRoot, "src", "svelte.config.js");
-fs.writeFileSync(svelteConfigPath, `/// <reference types="svelte" />`);
+fs.writeFileSync(
+  svelteConfigPath,
+  `const sveltePreprocess = require("svelte-preprocess");
+  
+    module.exports = {
+      preprocess: sveltePreprocess({
+        // ...
+      }),
+    };
+    `
+);
 
 // Delete this script, but not during testing
 if (!argv[2]) {
