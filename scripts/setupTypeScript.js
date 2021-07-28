@@ -48,6 +48,10 @@ packageJSON.jest.transform["^.+\\.svelte$"] = [
 packageJSON.jest.transform = Object.assign(packageJSON.jest.transform, {
   "^.+\\.ts$": "ts-jest",
 });
+packageJSON.jest.moduleFileExtensions = [
+  ...packageJSON.jest.moduleFileExtensions,
+  "ts",
+];
 
 // Write the package JSON
 fs.writeFileSync(
@@ -101,6 +105,8 @@ const tsconfig = `{
 
   "include": ["src/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+
+  "compilerOptions":{"types":["jest"]}
 }`;
 const tsconfigPath = path.join(projectRoot, "tsconfig.json");
 fs.writeFileSync(tsconfigPath, tsconfig);
@@ -110,7 +116,7 @@ const dtsPath = path.join(projectRoot, "src", "global.d.ts");
 fs.writeFileSync(dtsPath, `/// <reference types="svelte" />`);
 
 // Add svelte.config.js
-const svelteConfigPath = path.join(projectRoot, "src", "svelte.config.js");
+const svelteConfigPath = path.join(projectRoot, "svelte.config.js");
 fs.writeFileSync(
   svelteConfigPath,
   `const sveltePreprocess = require("svelte-preprocess");
