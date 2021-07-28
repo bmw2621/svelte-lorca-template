@@ -31,6 +31,7 @@
     "svelte-jester": "^1.7.0"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.14.8",
     "sirv-cli": "^1.0.0"
   },
   "jest": {
