@@ -36,6 +36,10 @@ Starts the Svelte application in development mode (hot reload watching for file 
 
 Builds the app for production, creating a single executable will all assets bundled. It correctly bundles Svelte in production mode and optimizes the build for the best performance.
 
+### `yarn test`
+
+Runs go test and jest. Go test will fail without the `assets.go` file that is run during code generation, so `go generate` runs first. Frontend and backend tests can be run individually with `yarn svelte:test` or yarn `go:test` respectively.
+
 ### `node ./scripts/setupTypeScript.js`
 
 Uses the Svelte Template provided script to add typescript to the frontend project

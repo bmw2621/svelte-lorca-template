@@ -1,13 +1,15 @@
 {
-  "name": "svelte-app",
+  "name": "svelte-lorca-template",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "npm run svelte:build & npm run svelte:start & npm run go:start",
     "dev": "npm run svelte:dev & npm run go:start",
     "build": "npm run svelte:build && npm run go:generate && npm run go:build",
+    "test": "npm run go:generate && npm run go:test && npm run svelte:test",
     "go:start": "go run serve_debug.go main.go -tags debug",
     "go:generate": "go generate",
+    "go:test": "go generate && go test ./...",
     "go:build": "go build",
     "svelte:build": "rollup -c",
     "svelte:dev": "rollup -c -w",
