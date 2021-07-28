@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "scripts": {
-    "start": "npm run svelte:build & npm run svelte:start & npm run go:start",
+    "start": "npm run svelte:build && npm run svelte:start & npm run go:start",
     "dev": "npm run svelte:dev & npm run go:start",
     "build": "npm run svelte:build && npm run go:generate && npm run go:build",
     "test": "npm run go:generate && npm run go:test && npm run svelte:test",
