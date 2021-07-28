@@ -16,6 +16,7 @@
     "svelte:test:watch": "npm run svelte:test -- --watch"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.14.8",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -31,7 +32,6 @@
     "svelte-jester": "^1.7.0"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.14.8",
     "sirv-cli": "^1.0.0"
   },
   "jest": {
