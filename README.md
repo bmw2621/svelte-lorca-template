@@ -34,7 +34,7 @@ Starts the Svelte application in development mode (hot reload watching for file 
 
 ### `yarn build`
 
-Builds the app for production, creating a single executable will all assets bundled. It correctly bundles Svelte in production mode and optimizes the build for the best performance.
+Builds the app for production, creating a single executable for the "backend" Go application. It correctly bundles Svelte in production mode and optimizes the build for the best performance.  The Go executable will still require the bundled Svelte client application which builds to the `public` directory.
 
 ### `yarn test`
 
